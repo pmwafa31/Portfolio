@@ -1,0 +1,17 @@
+<span style="font-weight:bold">NAME</span>
+<br>{{ name }}
+
+<br><br>
+
+<span style="font-weight:bold">EMAIL</span>
+<br>{{ email }}
+
+<br><br>
+
+<span style="font-weight:bold">SUBJECT</span>
+<br>{{ subject }}
+
+<br><br>
+
+<span style="font-weight:bold">MESSAGE</span>
+<br>{{ message }}

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddlewarw',
 ]
 
 ROOT_URLCONF = 'Personal_Portfolio.urls'
@@ -125,6 +127,9 @@ STATICFILES_DIRS = [
     'Personal_Portfolio/static',
 ]
 
+#  Add configuration for static files storage using whitenoise
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 #Media File Configuaration
 
 MEDIA_URL = '/media/'
@@ -142,6 +147,8 @@ EMAIL_HOST_USER ='personal_portfolio'
 EMAIL_HOST_PASSWORD ='personal_portfolio'
 EMAIL_USE_TLS =False
 EMAIL_BACKEND ='personal_portfolio'
+
+django_heroku.settings(locals())
 
 try:
     from .local_settings import *
